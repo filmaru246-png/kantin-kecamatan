@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kantin Pojok Kecamatan - Cilacap Selatan</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #c62828 0%, #d81b60 100%);
+            color: #333;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header & Navigation */
+        header {
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            padding: 15px 0;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-family: 'Dancing Script', cursive;
+            font-size: 32px;
+            font-weight: 700;
+            color: #d81b60;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo i {
+            margin-right: 10px;
+            color: #c62828;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            font-size: 18px;
+            transition: color 0.3s;
+            position: relative;
+            padding-bottom: 5px;
+        }
+        
+        .nav-links a:hover {
+            color: #d81b60;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: #d81b60;
+            left: 0;
+            bottom: 0;
+            transition: width 0.3s;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        
+        /* Main Content */
+        main {
+            margin-top: 100px;
+        }
+        
+        section {
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            animation: fadeInUp 1s ease-out;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .section-title {
+            color: #d81b60;
+            font-size: 36px;
+            margin-bottom: 30px;
+            text-align: center;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(to right, #c62828, #d81b60);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        /* Running Text */
+        .running-text-container {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            border: 2px solid #800000;
+        }
+        
+        .running-text {
+            font-size: 22px;
+            color: #800000; /* Warna merah marun */
+            font-weight: 700;
+            white-space: nowrap;
+            animation: runningText 25s linear infinite;
+            text-shadow: none;
+            text-align: center;
+        }
+        
+        /* Hero Section */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 60px 40px;
+            position: relative;
+            min-height: 500px;
+        }
+        
+        .hero-content {
+            flex: 1;
+            z-index: 2;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            color: #d81b60;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .hero p {
+            font-size: 20px;
+            color: #555;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+        
+        .highlight {
+            color: #c62828;
+            font-weight: 700;
+        }
+        
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1;
+        }
+        
+        .minumes-bg {
+            width: 450px;
+            height: 450px;
+            background-image: url('https://i.ibb.co.com/ynLn6Bxd/minumes.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            border-radius: 50%; /* Dibuat bulat/oval */
+            opacity: 1;
+            position: absolute;
+            right: -50px;
+            top: 50%;
+            transform: translateY(-50%);
+            animation: float 6s ease-in-out infinite;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            border: 8px solid white;
+            object-fit: cover;
+        }
+        
+        /* Menu Section */
+        .menu-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .menu-item {
+            background-color: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.5s, box-shadow 0.5s;
+            animation: fadeInUp 1s ease-out;
+            animation-fill-mode: both;
+            border: 2px solid #f0f0f0;
+        }
+        
+        .menu-item:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+            border-color: #d81b60;
+        }
+        
+        .menu-item:nth-child(1) {
+            animation-delay: 0.2s;
+        }
+        
+        .menu-item:nth-child(2) {
+            animation-delay: 0.4s;
+        }
+        
+        .menu-item:nth-child(3) {
+            animation-delay: 0.6s;
+        }
+        
+        .menu-item:nth-child(4) {
+            animation-delay: 0.8s;
+        }
+        
+        .menu-img {
+            height: 220px;
+            width: 100%;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.5s;
+        }
+        
+        .menu-item:hover .menu-img {
+            transform: scale(1.05);
+        }
+        
+        .menu-content {
+            padding: 25px;
+        }
+        
+        .menu-title {
+            font-size: 24px;
+            color: #d81b60;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .menu-price {
+            color: #c62828;
+            font-weight: 700;
+            font-size: 22px;
+            background-color: rgba(198, 40, 40, 0.1);
+            padding: 5px 15px;
+            border-radius: 20px;
+        }
+        
+        .menu-desc {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .order-btn {
+            display: inline-block;
+            background-color: #25D366;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            text-align: center;
+        }
+        
+        .order-btn:hover {
+            background-color: #128C7E;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
+        }
+        
+        .order-btn i {
+            margin-right: 8px;
+        }
+        
+        /* Keunggulan Section */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .feature-item {
+            background-color: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+            border: 1px solid #f0f0f0;
+        }
+        
+        .feature-item:hover {
+            transform: translateY(-10px);
+            border-color: #d81b60;
+        }
+        
+        .feature-icon {
+            font-size: 50px;
+            color: #d81b60;
+            margin-bottom: 20px;
+        }
+        
+        .feature-title {
+            font-size: 22px;
+            color: #c62828;
+            margin-bottom: 15px;
+        }
+        
+        .feature-desc {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        /* Kontak Section */
+        .contact-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-top: 40px;
+        }
+        
+        .contact-info {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+            border: 1px solid #f0f0f0;
+        }
+        
+        .contact-item:hover {
+            transform: translateX(10px);
+            border-color: #d81b60;
+        }
+        
+        .contact-icon {
+            font-size: 30px;
+            color: #d81b60;
+            margin-right: 20px;
+            width: 60px;
+            height: 60px;
+            background-color: rgba(216, 27, 96, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .contact-text h3 {
+            color: #c62828;
+            margin-bottom: 5px;
+        }
+        
+        .contact-text p {
+            color: #666;
+        }
+        
+        .whatsapp-btn {
+            display: inline-block;
+            background-color: #25D366;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 18px;
+            margin-top: 20px;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+        }
+        
+        .whatsapp-btn:hover {
+            background-color: #128C7E;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
+        }
+        
+        .whatsapp-btn i {
+            margin-right: 10px;
+        }
+        
+        .map-container {
+            flex: 1;
+            min-width: 300px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .map-placeholder {
+            width: 100%;
+            height: 100%;
+            background-color: #f5f5f5;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 30px;
+        }
+        
+        .map-placeholder i {
+            font-size: 80px;
+            color: #d81b60;
+            margin-bottom: 20px;
+        }
+        
+        /* Floating Order Button */
+        .floating-order {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4);
+            z-index: 999;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+        
+        .floating-order:hover {
+            transform: scale(1.1);
+            background-color: #128C7E;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+            margin-top: 60px;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .footer-logo {
+            font-family: 'Dancing Script', cursive;
+            font-size: 36px;
+            color: white;
+            margin-bottom: 20px;
+        }
+        
+        .copyright {
+            color: #aaa;
+            margin-top: 20px;
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes runningText {
+            0% {
+                transform: translateX(100%);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(-50%) translateX(0);
+            }
+            50% {
+                transform: translateY(-50%) translateX(-20px);
+            }
+        }
+        
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(216, 27, 96, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 15px rgba(216, 27, 96, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(216, 27, 96, 0);
+            }
+        }
+        
+        .pulse-animation {
+            animation: pulse 2s infinite;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 1100px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .hero-image {
+                margin-top: 40px;
+            }
+            
+            .minumes-bg {
+                position: relative;
+                right: auto;
+                top: auto;
+                transform: none;
+                width: 350px;
+                height: 350px;
+                margin: 0 auto;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: white;
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .nav-links li {
+                margin: 10px 0;
+                margin-left: 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            section {
+                padding: 30px 20px;
+            }
+            
+            .section-title {
+                font-size: 28px;
+            }
+            
+            .menu-container, .features {
+                grid-template-columns: 1fr;
+            }
+            
+            .running-text {
+                font-size: 18px;
+            }
+            
+            .floating-order {
+                bottom: 20px;
+                right: 20px;
+                width: 50px;
+                height: 50px;
+                font-size: 24px;
+            }
+            
+            .minumes-bg {
+                width: 280px;
+                height: 280px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <i class="fas fa-utensils"></i>
+                    Kantin Pojok Kecamatan
+                </div>
+                <div class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#beranda">Beranda</a></li>
+                    <li><a href="#menu">Menu</a></li>
+                    <li><a href="#keunggulan">Keunggulan</a></li>
+                    <li><a href="#kontak">Kontak</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Running Text -->
+    <div class="container">
+        <div class="running-text-container">
+            <div class="running-text">
+                🎉 SELAMAT DATANG DI KANTIN POJOK KECAMATAN! 🎉 MENU ANDALAN KAMI: ES TELER Rp 10.000 • NASI RAMES Rp 7.000 • SOTO SEMARANG Rp 10.000 • ANEKA MINUMAN • ANEKA GORENGAN • 🎉 RASA AUTENTIK, HARGA TERJANGKAU! 🎉
+            </div>
+        </div>
+    </div>
+
+    <main class="container">
+        <!-- Beranda Section -->
+        <section id="beranda" class="hero">
+            <div class="hero-content">
+                <h1>Nikmati Kelezatan Autentik di <span class="highlight">Kantin Pojok Kecamatan</span></h1>
+                <p>Tempatnya kuliner nikmat dengan suasana khas pedesaan yang hangat dan bersahabat. Nikmati hidangan lezat dan minuman segar yang dibuat dengan bahan-bahan pilihan dan cita rasa tradisional yang autentik.</p>
+                <p>Dikelola langsung oleh <span class="highlight">Ibu Arin</span> dengan resep turun-temurun yang sudah teruji kelezatannya selama puluhan tahun. Setiap hidangan disajikan dengan penuh kasih sayang untuk membuat Anda merasa seperti di rumah sendiri.</p>
+                <div class="pulse-animation" style="padding: 10px; border-radius: 5px; display: inline-block; background-color: rgba(216, 27, 96, 0.1); border: 2px solid #d81b60;">
+                    <p style="margin: 0; color: #c62828; font-weight: 600;">Harga Terjangkau • Rasa Tiada Tara • Pelayanan Ramah</p>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="minumes-bg"></div>
+            </div>
+        </section>
+
+        <!-- Menu Section -->
+        <section id="menu">
+            <h2 class="section-title">Menu Andalan Kami</h2>
+            <p style="text-align: center; font-size: 18px; color: #666; margin-bottom: 20px;">Pilihan menu lezat dengan harga terjangkau!</p>
+            <div class="menu-container">
+                <!-- Menu 1: Es Teler -->
+                <div class="menu-item">
+                    <div class="menu-img" style="background-image: url('https://i.ibb.co.com/NfqDxvw/esteler.jpg');"></div>
+                    <div class="menu-content">
+                        <div class="menu-title">
+                            <span>Es Teler Spesial</span>
+                            <div class="menu-price">Rp 10.000</div>
+                        </div>
+                        <p class="menu-desc">Nikmati kesegaran buah-buahan tropis pilihan (alpukat, kelengkeng, nangka) yang dipadukan dengan kelapa muda, sirup merah spesial, dan susu kental manis. Disajikan dengan es serut yang lembut, cocok untuk melepas dahaga di siang hari yang terik.</p>
+                        <a href="https://wa.me/6282132195904?text=Halo%20Ibu%20Arin,%20saya%20ingin%20memesan%20Es%20Teler%20Spesial%20seharga%20Rp%2010.000" class="order-btn" target="_blank">
+                            <i class="fab fa-whatsapp"></i> Pesan Sekarang
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Menu 2: Nasi Rames -->
+                <div class="menu-item">
+                    <div class="menu-img" style="background-image: url('https://i.ibb.co.com/xq1mNpFv/rames.jpg');"></div>
+                    <div class="menu-content">
+                        <div class="menu-title">
+                            <span>Nasi Rames Komplit</span>
+                            <div class="menu-price">Rp 7.000</div>
+                        </div>
+                        <p class="menu-desc">Nasi putih pulen disajikan dengan 4 lauk pilihan: ayam goreng rempah, telur balado, tempe orek, dan sayur lodeh segar. Dilengkapi dengan sambal terasi pedas buatan Ibu Arin. Porsi yang mengenyangkan dengan harga yang sangat terjangkau!</p>
+                        <a href="https://wa.me/6282132195904?text=Halo%20Ibu%20Arin,%20saya%20ingin%20memesan%20Nasi%20Rames%20Komplit%20seharga%20Rp%207.000" class="order-btn" target="_blank">
+                            <i class="fab fa-whatsapp"></i> Pesan Sekarang
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Menu 3: Soto Semarang -->
+                <div class="menu-item">
+                    <div class="menu-img" style="background-image: url('https://i.ibb.co.com/jZLB0P0s/soto-semarang.jpg');"></div>
+                    <div class="menu-content">
+                        <div class="menu-title">
+                            <span>Soto Semarang</span>
+                            <div class="menu-price">Rp 10.000</div>
+                        </div>
+                        <p class="menu-desc">Soto ayam khas Semarang dengan kuah bening gurih, suwiran ayam kampung, tauge segar, soun, dan taburan bawang goreng. Disajikan dengan nasi putih, sambal, dan perasan jeruk nipis. Rasa rempah yang autentik dan menghangatkan tubuh.</p>
+                        <a href="https://wa.me/6282132195904?text=Halo%20Ibu%20Arin,%20saya%20ingin%20memesan%20Soto%20Semarang%20seharga%20Rp%2010.000" class="order-btn" target="_blank">
+                            <i class="fab fa-whatsapp"></i> Pesan Sekarang
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Menu 4: Aneka Minuman & Gorengan -->
+                <div class="menu-item">
+                    <div class="menu-img" style="background-image: url('https://i.ibb.co.com/zVbBsPz8/kopi-susu.jpg');"></div>
+                    <div class="menu-content">
+                        <div class="menu-title">
+                            <span>Aneka Minuman & Gorengan</span>
+                            <div class="menu-price">Rp 3.000-5.000</div>
+                        </div>
+                        <p class="menu-desc">Kopi Susu Gula Aren (Rp 5.000), Teh Manis/Tawar (Rp 3.000), Es Jeruk (Rp 5.000). Juga tersedia aneka gorengan: tempe mendoan, bakwan jagung, pisang goreng, dan risoles. Cocok untuk teman santai sore hari atau penambah semangat di pagi hari.</p>
+                        <a href="https://wa.me/6282132195904?text=Halo%20Ibu%20Arin,%20saya%20ingin%20memesan%20Aneka%20Minuman/Gorengan" class="order-btn" target="_blank">
+                            <i class="fab fa-whatsapp"></i> Pesan Sekarang
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Keunggulan Section -->
+        <section id="keunggulan">
+            <h2 class="section-title">Keunggulan Kami</h2>
+            <div class="features">
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3 class="feature-title">Bahan Segar & Alami</h3>
+                    <p class="feature-desc">Kami hanya menggunakan bahan-bahan segar dan berkualitas tinggi, dipilih langsung dari pasar tradisional dan petani lokal untuk menjamin cita rasa terbaik.</p>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3 class="feature-title">Dibuat dengan Kasih Sayang</h3>
+                    <p class="feature-desc">Setiap hidangan disiapkan dengan penuh kasih sayang oleh Ibu Arin dan tim, menjaga keautentikan rasa masakan rumahan yang membuat Anda ketagihan.</p>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-wallet"></i>
+                    </div>
+                    <h3 class="feature-title">Harga Sangat Terjangkau</h3>
+                    <p class="feature-desc">Nikmati makanan enak dengan harga yang ramah di kantong. Kami percaya makanan berkualitas harus dapat dinikmati oleh semua kalangan masyarakat.</p>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3 class="feature-title">Buka Setiap Hari</h3>
+                    <p class="feature-desc">Kami buka dari jam 06.00 pagi hingga 17.00 sore setiap hari, siap melayani kebutuhan makan Anda kapan saja. Pesan via WhatsApp juga bisa!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Kontak Section -->
+        <section id="kontak">
+            <h2 class="section-title">Kontak & Lokasi</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h3>Pemilik</h3>
+                            <p>Ibu Arin</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h3>Alamat</h3>
+                            <p>Jl. Bromo (pojok kecamatan cilacap selatan)</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h3>Telepon/WhatsApp</h3>
+                            <p>0821-3219-5904</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h3>Jam Buka</h3>
+                            <p>Setiap Hari: 06.00 - 17.00 WIB</p>
+                        </div>
+                    </div>
+                    
+                    <a href="https://wa.me/6282132195904?text=Halo%20Ibu%20Arin,%20saya%20ingin%20memesan%20makanan%20dari%20Kantin%20Pojok%20Kecamatan" class="whatsapp-btn" target="_blank">
+                        <i class="fab fa-whatsapp"></i> Pesan via WhatsApp Sekarang
+                    </a>
+                </div>
+                
+                <div class="map-container">
+                    <div class="map-placeholder">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <h3>Lokasi Kantin Pojok Kecamatan</h3>
+                        <p>Jl. Bromo (pojok kecamatan cilacap selatan)</p>
+                        <p>Mudah dijangkau, berada di lokasi strategis dekat kantor kecamatan.</p>
+                        <p style="margin-top: 15px; color: #c62828; font-weight: 600;">Buka setiap hari: 06.00 - 17.00 WIB</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/6282132195904?text=Halo%20Ibu%20Arin,%20saya%20ingin%20memesan%20makanan%20dari%20Kantin%20Pojok%20Kecamatan" class="floating-order" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">Kantin Pojok Kecamatan</div>
+                <p>Nikmati kelezatan masakan rumahan dengan cita rasa tradisional yang autentik</p>
+                <p style="margin-top: 10px;"><i class="fas fa-map-marker-alt"></i> Jl. Bromo (pojok kecamatan cilacap selatan)</p>
+                <p><i class="fas fa-phone"></i> 0821-3219-5904 | <i class="fas fa-user"></i> Ibu Arin</p>
+                <p><i class="fas fa-clock"></i> Buka: 06.00 - 17.00 WIB (Setiap Hari)</p>
+                <p class="copyright">© 2025 Kantin Pojok Kecamatan. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Close mobile menu if open
+                document.querySelector('.nav-links').classList.remove('active');
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Add animation to menu items on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    entry.target.style.animationPlayState = 'running';
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+        
+        // Observe menu items
+        document.querySelectorAll('.menu-item').forEach(item => {
+            item.style.animationPlayState = 'paused';
+            observer.observe(item);
+        });
+        
+        // Running text animation on load
+        window.addEventListener('load', function() {
+            const runningText = document.querySelector('.running-text');
+            const textWidth = runningText.scrollWidth;
+            const containerWidth = document.querySelector('.running-text-container').offsetWidth;
+            
+            // Adjust animation duration based on text length
+            const duration = (textWidth / 50) * 2;
+            runningText.style.animationDuration = duration + 's';
+        });
+        
+        // WhatsApp order buttons
+        document.querySelectorAll('.order-btn').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                // Already has target="_blank", so no need for additional code
+                // You can add tracking or analytics here if needed
+            });
+        });
+    </script>
+</body>
+</html>
